@@ -3,43 +3,57 @@ import avatar from './unnamed.jpg';
 import { HiChevronRight } from 'react-icons/hi';
 import { FaHeart, FaGithub, FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram, AiFillMail } from 'react-icons/ai';
-import logo from './logo.svg';
-import './App.css';
+import { Modal, Button, Form, Input, InputNumber } from 'antd';
+import { useState } from 'react';
 
 const HomePage = ({}) => {
+  const [modal2Open, setModal2Open] = useState(false);
+
+  const layout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
+  };
+
+  const validateMessages = {
+    required: '${label} is required!',
+    types: {
+      email: '${label} is not a valid email!',
+      number: '${label} is not a valid number!',
+    },
+    number: {
+      range: '${label} must be between ${min} and ${max}',
+    },
+  };
+
+  const onFinish = (values) => {
+    console.log(values);
+  };
+
   return (
-    <div className="container mx-auto text-center mt-20 text-white">
+    <div className="min-w-full md:min-w-fit container mx-auto text-center mt-6 text-white">
       <article className="">
         <div
-          className="px-4 mx-auto"
-          style={{
-            maxWidth: '550px',
-          }}
+          className="max-w-xl md:w-4/6 lg:w-3/6 xl:w-2/6 mx-auto px-4"
+          style={{}}
         >
-          <div>
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-              </header>
-            </div>
-          </div>
-
           <div
             className="p-3 rounded-lg mt-1 title"
             style={{ backgroundColor: '#313134' }}
           >
-            <p>Hello, I'm an front-end developer in Vietnam!</p>
+            <p className="text-lg md:text-xl">
+              Hello, I'm an front-end developer in Vietnam!
+            </p>
           </div>
 
-          <div className="flex justify-between items-center mt-6">
-            <div className="profile">
+          <div className="block md:flex justify-between items-center mt-6">
+            <div className="profile text-left md:text-center">
               <h2 className="text-4xl font-semibold">Vuong Quang Ninh</h2>
               <p className="mt-1">Front-end Developer ( ReactJS )</p>
             </div>
             <div className="avatar">
               <div
-                className="border-white border-2 rounded-full"
-                style={{ width: '120px', height: '120px' }}
+                className="h-28 w-28 border-white border-2 rounded-full mx-auto mt-2"
+                style={{}}
               >
                 <img
                   src={avatar}
@@ -53,8 +67,8 @@ const HomePage = ({}) => {
 
           <div className="mt-6">
             <h3
-              className="text-start text-xl font-bold border-b-4"
-              style={{ width: 'calc(100% - 90%)', borderColor: '#525252' }}
+              className="w-fit text-start text-xl font-bold border-b-4"
+              style={{ borderColor: '#525252' }}
             >
               Work
             </h3>
@@ -66,14 +80,13 @@ const HomePage = ({}) => {
             </p>
             <div>
               <Link
-                to={'/about'}
-                className="btn flex items-center justify-center mx-auto px-4 py-2 text-black font-semibold rounded-lg mt-4"
+                to={'/portfolio'}
+                className="btn w-fit flex items-center justify-center mx-auto px-4 py-2 text-black font-semibold rounded-lg mt-4"
                 style={{
-                  width: 'calc(100% - 70%)',
                   backgroundColor: '#81e6d9',
                 }}
               >
-                About me
+                My portfolio
                 <HiChevronRight className="ml-2 mt-1" />
               </Link>
             </div>
@@ -81,8 +94,8 @@ const HomePage = ({}) => {
 
           <div className="mt-4">
             <h3
-              className="text-start text-xl font-bold border-b-4"
-              style={{ width: 'calc(100% - 94%)', borderColor: '#525252' }}
+              className="w-fit text-start text-xl font-bold border-b-4"
+              style={{ borderColor: '#525252' }}
             >
               Bio
             </h3>
@@ -106,12 +119,12 @@ const HomePage = ({}) => {
 
             <div>
               <h3
-                className="flex items-center text-start text-xl font-bold border-b-4"
-                style={{ width: 'calc(100% - 93%)', borderColor: '#525252' }}
+                className="w-fit flex items-center text-start text-xl font-bold border-b-4"
+                style={{ borderColor: '#525252' }}
               >
                 I <FaHeart className="ml-2 text-lg" />
               </h3>
-              <p className="text-justify indent-6 mt-2">
+              <p className="text-justify indent-6 mt-2 tracking-tight">
                 Art, Music, Dancing, Playing Soccer, Basketball, Jogging,
                 Machine Learning
               </p>
@@ -119,8 +132,8 @@ const HomePage = ({}) => {
 
             <div>
               <h3
-                className="items-center text-start text-xl font-bold border-b-4"
-                style={{ width: 'calc(100% - 79%)', borderColor: '#525252' }}
+                className="w-fit items-center text-start text-xl font-bold border-b-4"
+                style={{ borderColor: '#525252' }}
               >
                 On the web
               </h3>
@@ -163,24 +176,77 @@ const HomePage = ({}) => {
 
             <div className="mb-6">
               <h3
-                className="items-center text-start text-xl font-bold border-b-4"
-                style={{ width: 'calc(100% - 80%)', borderColor: '#525252' }}
+                className="w-fit items-center text-start text-xl font-bold border-b-4"
+                style={{ borderColor: '#525252' }}
               >
                 Newsletter
               </h3>
               <p className="text-justify mt-2">Contact with me</p>
               <a
                 href="#"
-                className="btn flex items-center justify-center mx-auto px-4 py-2 text-black font-semibold rounded-lg mt-4"
+                className="w-fit btn flex items-center justify-center mx-auto px-4 py-2 text-black font-semibold rounded-lg mt-4"
                 style={{
-                  width: 'calc(100% - 54%)',
                   backgroundColor: '#81e6d9',
                 }}
               >
-                <span className="btn-text flex items-center justify-center">
+                <span
+                  className="btn-text flex items-center justify-center"
+                  onClick={() => setModal2Open(!modal2Open)}
+                >
                   <AiFillMail className="mr-2" />
                   Send me newletters here
                 </span>
+                <Modal
+                  title="Send Mail"
+                  centered
+                  open={modal2Open}
+                  onOk={() => setModal2Open(false)}
+                  onCancel={() => setModal2Open(false)}
+                >
+                  <Form
+                    {...layout}
+                    name="nest-messages"
+                    onFinish={onFinish}
+                    style={{ maxWidth: 600 }}
+                    validateMessages={validateMessages}
+                  >
+                    <Form.Item
+                      name={['user', 'name']}
+                      label="Name"
+                      rules={[{ required: true }]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    <Form.Item
+                      name={['user', 'email']}
+                      label="Email"
+                      rules={[{ type: 'email' }]}
+                    >
+                      <Input />
+                    </Form.Item>
+                    <Form.Item
+                      name={['user', 'age']}
+                      label="Age"
+                      rules={[{ type: 'number', min: 0, max: 99 }]}
+                    >
+                      <InputNumber />
+                    </Form.Item>
+                    <Form.Item name={['user', 'website']} label="Website">
+                      <Input />
+                    </Form.Item>
+                    <Form.Item
+                      name={['user', 'introduction']}
+                      label="Introduction"
+                    >
+                      <Input.TextArea />
+                    </Form.Item>
+                    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+                      <Button type="primary" htmlType="submit">
+                        Submit
+                      </Button>
+                    </Form.Item>
+                  </Form>
+                </Modal>
               </a>
             </div>
           </div>

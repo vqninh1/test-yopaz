@@ -48,4 +48,16 @@ code {
     color: #fff;
   }
 
+  .info-items {
+    background-color: #f5f0e8 !important;
+
+  }
+
+  .info-icon {
+    color: #111;
+  }
+
+  .items-border {
+    border-color: #111 !important;
+  }
 }

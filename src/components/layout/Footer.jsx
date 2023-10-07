@@ -2,13 +2,13 @@ import { FaFacebook, FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa';
 
 const Footer = ({}) => {
   return (
-    <div className="">
+    <div className="" style={{ color: '#444447' }}>
       <div className="container mx-auto">
         <div
-          className="flex justify-between items-center text-lg"
-          style={{ height: '70px' }}
+          className="block md:flex h-16 justify-between text-center items-center text-lg mx-6"
+          style={{}}
         >
-          <div className="flex items-center">
+          <div className="flex items-center justify-center mb-2">
             <a href="#" className="text-3xl pr-6">
               <FaFacebook />
             </a>

@@ -60,4 +60,13 @@ code {
   .items-border {
     border-color: #111 !important;
   }
+
+  .theme-white {
+    background-color: #319795 !important;
+  }
+
+  .menu .menu-item {
+    background-color: #319795;
+    color: #fff;
+  }
 }

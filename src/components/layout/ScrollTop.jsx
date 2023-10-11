@@ -24,7 +24,7 @@ const ScrollTop = () => {
   }, []);
   return (
     <div
-      className="fixed w-12 h-12 bottom-12 right-5 z-30 rounded-full bg-amber-300 shadow-amber-500 cursor-pointer"
+      className="fixed w-12 h-12 bottom-12 right-5 z-30 rounded-full bg-amber-300 shadow-lg shadow-black cursor-pointer"
       onClick={scrollToTop}
       style={{
         display: visible ? 'block' : 'none',

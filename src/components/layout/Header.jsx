@@ -5,14 +5,13 @@ import { useEffect, useRef, useState } from 'react';
 import { HiMoon } from 'react-icons/hi2';
 import { FaBars } from 'react-icons/fa';
 
-const Header = ({}) => {
+const Header = ({ toggle, setToggle }) => {
   const whiteTheme = useRef();
   const blackTheme = useRef();
 
-  const menuRef = useRef(null);
+  const menuRef = useRef();
 
   const [theme, setTheme] = useState('light');
-  const [dropDowMenu, setDropDownMenu] = useState(false);
 
   const handleBgMode = () => {
     if (theme === 'light') {
@@ -36,9 +35,8 @@ const Header = ({}) => {
     document.body.classList.toggle('white-theme', theme === 'light');
   }, [theme]);
 
-  const toggleDropDown = (e) => {
-    e.stopPropagation();
-    setDropDownMenu(!dropDowMenu);
+  const toggleDropDown = () => {
+    setToggle(!toggle);
   };
 
   // useEffect(() => {
@@ -122,31 +120,31 @@ const Header = ({}) => {
             style={{}}
             onClick={toggleDropDown}
           >
-            <button className="btn-header">
+            <button className="">
               <FaBars className="text-black text-xl" />
-              {dropDowMenu && (
+              {toggle && (
                 <div
-                  className="absolute top-14 right-0 w-52 bg-gray-700 shadow-lg shadow-gray-950 rounded border border-gray-50"
+                  className="menu absolute top-14 right-0 w-52 bg-gray-700 shadow-lg shadow-gray-950 rounded border border-gray-50"
                   ref={menuRef}
                 >
-                  <ul className=" text-left">
-                    <li className="p-2 py-3">
+                  <ul className="text-left">
+                    <li className="p-2 py-3 menu-item">
                       <Link to="/" className="p-2 text-md font-normal">
                         Home
                       </Link>
                     </li>
-                    <li className="p-2 py-3">
-                      <Link to="/about" className="p-2 text-md font-normal">
+                    <li className="p-2 py-3 menu-item">
+                      <Link to="/" className="p-2 text-md font-normal">
                         About
                       </Link>
                     </li>
-                    <li className="p-2 py-3">
+                    <li className="p-2 py-3 menu-item">
                       <Link to="/portfolio" className="p-2 text-md font-normal">
                         Portfolio
                       </Link>
                     </li>
-                    <li className="p-2 py-3">
-                      <Link to="/" className="p-2 text-md font-normal">
+                    <li className="p-2 py-3 menu-item">
+                      <Link to="/contact" className="p-2 text-md font-normal">
                         Contact
                       </Link>
                     </li>

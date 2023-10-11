@@ -143,7 +143,7 @@ const HomePage = ({}) => {
                     href="https://github.com/vqninh1"
                     style={{ color: '#81e6d9' }}
                   >
-                    <button className="flex items-center text-lg font-semibold">
+                    <button className="btn-info flex items-center text-lg font-semibold">
                       <FaGithub className="ml-4 mr-2" />
                       @vqninh1
                     </button>
@@ -154,7 +154,7 @@ const HomePage = ({}) => {
                     href="https://twitter.com/vqninh1"
                     style={{ color: '#81e6d9' }}
                   >
-                    <button className="flex items-center text-lg font-semibold">
+                    <button className="btn-info flex items-center text-lg font-semibold">
                       <FaTwitter className="ml-4 mr-2" />
                       @vqninh1
                     </button>
@@ -165,7 +165,7 @@ const HomePage = ({}) => {
                     href="https://github.com/vqninh1"
                     style={{ color: '#81e6d9' }}
                   >
-                    <button className="flex items-center text-lg font-semibold">
+                    <button className="btn-info flex items-center text-lg font-semibold">
                       <AiFillInstagram className="ml-4 mr-2" />
                       @quangninh.08
                     </button>

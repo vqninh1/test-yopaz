@@ -69,4 +69,8 @@ code {
     background-color: #319795;
     color: #fff;
   }
+
+  .btn-info {
+    color: #319795 !important;
+  }
 }

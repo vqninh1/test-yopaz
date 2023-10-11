@@ -11,42 +11,45 @@ const Header = ({ toggle, setToggle }) => {
 
   const menuRef = useRef();
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const handleBgMode = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
+    if (theme === 'dark') {
       setTheme('light');
+    } else {
+      setTheme('dark');
     }
   };
 
-  useEffect(() => {
-    const storedTheme = localStorage.theme;
-    if (storedTheme) {
-      setTheme(storedTheme);
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-    }
-  }, []);
+  // useEffect(() => {
+  //   const storedTheme = localStorage.theme;
+  //   if (storedTheme) {
+  //     setTheme(storedTheme);
+  //     console.log(storedTheme);
+  //   } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  //     setTheme('dark');
+  //   }
+  //   console.log(storedTheme);
+  // }, []);
 
   useEffect(() => {
     localStorage.theme = theme;
     document.body.classList.toggle('white-theme', theme === 'light');
   }, [theme]);
 
-  const toggleDropDown = () => {
+  const toggleDropDown = (e) => {
+    // e.stopPropagation();
     setToggle(!toggle);
   };
 
   // useEffect(() => {
   //   const handleOutsideClick = (e) => {
-  //     if (dropDowMenu && !menuRef.current.contains(e.target)) {
-  //       setDropDownMenu(false);
+  //     if (toggle && !menuRef.current.contains(e.target)) {
+  //       setToggle(false);
   //     }
   //   };
 
-  //   if (dropDowMenu) {
+  //   if (toggle) {
   //     window.addEventListener('click', handleOutsideClick);
   //   } else {
   //     window.removeEventListener('click', handleOutsideClick);
@@ -55,7 +58,7 @@ const Header = ({ toggle, setToggle }) => {
   //   return () => {
   //     window.removeEventListener('click', handleOutsideClick);
   //   };
-  // }, [dropDowMenu]);
+  // }, [toggle]);
 
   return (
     <nav

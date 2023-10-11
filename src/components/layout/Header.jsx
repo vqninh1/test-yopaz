@@ -41,23 +41,23 @@ const Header = ({}) => {
     setDropDownMenu(!dropDowMenu);
   };
 
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (dropDowMenu && !menuRef.current.contains(e.target)) {
-        setDropDownMenu(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleOutsideClick = (e) => {
+  //     if (dropDowMenu && !menuRef.current.contains(e.target)) {
+  //       setDropDownMenu(false);
+  //     }
+  //   };
 
-    if (dropDowMenu) {
-      window.addEventListener('click', handleOutsideClick);
-    } else {
-      window.removeEventListener('click', handleOutsideClick);
-    }
+  //   if (dropDowMenu) {
+  //     window.addEventListener('click', handleOutsideClick);
+  //   } else {
+  //     window.removeEventListener('click', handleOutsideClick);
+  //   }
 
-    return () => {
-      window.removeEventListener('click', handleOutsideClick);
-    };
-  }, [dropDowMenu]);
+  //   return () => {
+  //     window.removeEventListener('click', handleOutsideClick);
+  //   };
+  // }, [dropDowMenu]);
 
   return (
     <nav
@@ -124,7 +124,7 @@ const Header = ({}) => {
           >
             <button className="btn-header">
               <FaBars className="text-black text-xl" />
-              {dropDowMenu === true ? (
+              {dropDowMenu && (
                 <div
                   className="absolute top-14 right-0 w-52 bg-gray-700 shadow-lg shadow-gray-950 rounded border border-gray-50"
                   ref={menuRef}
@@ -152,7 +152,7 @@ const Header = ({}) => {
                     </li>
                   </ul>
                 </div>
-              ) : null}
+              )}
             </button>
           </div>
         </div>

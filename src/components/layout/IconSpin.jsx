@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { memo } from 'react';
 
 const IconSpin = () => {
   return (
@@ -13,4 +14,4 @@ const IconSpin = () => {
   );
 };
 
-export default IconSpin;
+export default memo(IconSpin);

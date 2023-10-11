@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { AiOutlineUp } from 'react-icons/ai';
 
 const ScrollTop = () => {
@@ -37,4 +37,4 @@ const ScrollTop = () => {
   );
 };
 
-export default ScrollTop;
+export default memo(ScrollTop);
